@@ -21,7 +21,7 @@ crash.log
 .trivy/
 
 # SonarQube
-sonar-project.properties
+!sonar-project.properties
 sonar-scanner/
 
 # Logs and temporary files
