@@ -36,3 +36,6 @@ jobs:
           docker push amosegonmwan/tic-tac-toe:latest
         env:
           DOCKER_CLI_ACI: 1
+
+      - name: Trivy Image scan
+        run: trivy image  amosegonmwan/tic-tac-toe:latest > trivy-image.txt
