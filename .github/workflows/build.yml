@@ -1,28 +1,27 @@
-name: Build,Analyze,scan
+name: Build, Analyze, Scan
 
 on:
   push:
     branches:
       - main
 
-
 jobs:
   build-analyze-scan:
-    name: Build
+    name: Build, Analyze, and Scan
     runs-on: [self-hosted]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0 
 
       - name: Build and analyze with SonarQube
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          
-      - name: npm install dependency
+
+      - name: Install npm dependencies
         run: npm install
 
       - name: Trivy file scan
@@ -38,4 +37,18 @@ jobs:
           DOCKER_CLI_ACI: 1
 
       - name: Trivy Image scan
-        run: trivy image  amosegonmwan/tic-tac-toe:latest > trivy-image.txt
+        run: trivy image amosegonmwan/tic-tac-toe:latest > trivyimage.txt
+
+  deploy:
+    needs: build-analyze-scan
+    runs-on: [self-hosted]
+    steps:
+      - name: Docker pull image
+        run: docker pull amosegonmwan/tic-tac-toe:latest
+
+      - name: Image scan
+        run: trivy image amosegonmwan/tic-tac-toe:latest > trivyimagedeploy.txt
+
+      - name: Deploy to container
+        run: docker run -d --name tic-tac-toe -p 3000:3000 amosegonmwan/tic-tac-toe:latest
+
