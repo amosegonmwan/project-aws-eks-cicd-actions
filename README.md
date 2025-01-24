@@ -99,3 +99,19 @@ The user data script provisions an EC2 instance with the following:
    - terraform apply --auto-approve
    ```
    
+5. **Set up GitHub Actions:** Configure the GitHub Actions workflows in the `.github` directory.
+
+6. **Run pipeline:** Push code changes to the repository to trigger the CI/CD pipeline.
+
+## Usage
+* **Access Kubernetes Cluster:** Get cluster details and connect:
+   ```bash
+   aws eks update-kubeconfig --name <eks-cluster-name> --region <aws-region> kubectl get nodes
+   ```
+* **Monitor Pipelines:** Check GitHub Actions for pipeline progress and logs.
+
+* **View Deployed Application:** Access the application using the Load Balancer URL created by AWS EKS.
+
+## Additional Configuration
+* **SonarQube:** Update sonar-project.properties with your project-specific configurations.
+* **Slack Notifications:** Add your Slack webhook URL in the workflow file for notifications.
