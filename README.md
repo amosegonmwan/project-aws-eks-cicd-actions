@@ -40,7 +40,7 @@ This project is structured as follows:
 ```plaintext
 .
 ├── .github                   # GitHub configurations
-│   ├── eks-workflow.yml      # CI/CD workflow for EKS deployment
+│   ├── build.yml             # CI/CD workflow for EKS deployment
 ├── aws-ec2-module            # Terraform module for EC2 provisioning
 ├── aws-terraform-eks         # Terraform configuration for EKS cluster
 ├── public                    # Public-facing files for the application
