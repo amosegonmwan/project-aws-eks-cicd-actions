@@ -37,19 +37,4 @@ This project implements a robust Continuous Integration and Continuous Deploymen
 ## Architecture
 This project is structured as follows:
 
-.
-├── .github                   # GitHub configurations
-│   ├── eks-workflow.yml      # CI/CD workflow for EKS deployment
-├── aws-ec2-module            # Terraform module for EC2 provisioning
-├── aws-terraform-eks         # Terraform configuration for EKS cluster
-├── public                    # Public-facing files for the application
-├── src                       # Source code for the application
-├── .gitignore                # Git ignore rules
-├── Dockerfile                # Docker build configuration
-├── deployment-service.yml    # Kubernetes deployment manifest
-├── package-lock.json         # npm lock file
-├── package.json              # npm configuration file
-├── script.sh                 # User data script for EC2 provisioning
-├── sonar-project.properties  # SonarQube configuration
-└── README.md                 # Project documentation
-
+. ├── .github # GitHub configurations │ ├── eks-workflow.yml # CI/CD workflow for EKS deployment ├── aws-ec2-module # Terraform module for EC2 provisioning ├── aws-terraform-eks # Terraform configuration for EKS cluster ├── public # Public-facing files for the application ├── src # Source code for the application ├── .gitignore # Git ignore rules ├── Dockerfile # Docker build configuration ├── deployment-service.yml # Kubernetes deployment manifest ├── package-lock.json # npm lock file ├── package.json # npm configuration file ├── script.sh # User data script for EC2 provisioning ├── sonar-project.properties # SonarQube configuration └── README.md # Project documentation
