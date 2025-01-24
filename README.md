@@ -1,4 +1,5 @@
 # CICD Project with GitHub Actions and AWS EKS
+![github-actions-draw4](https://github.com/user-attachments/assets/3d9140d8-b6c9-4234-9264-3693503f30b4)
 
 ## Description
 This project implements a robust Continuous Integration and Continuous Deployment (CI/CD) pipeline using GitHub Actions, AWS EKS, and a variety of tools to automate, secure, and streamline application delivery. It leverages Terraform for infrastructure provisioning, Aqua Trivy for security scanning, and integrates with Slack for notifications.
@@ -114,4 +115,5 @@ The user data script provisions an EC2 instance with the following:
 
 ## Additional Configuration
 * **SonarQube:** Update sonar-project.properties with your project-specific configurations.
+  
 * **Slack Notifications:** Add your Slack webhook URL in the workflow file for notifications.
