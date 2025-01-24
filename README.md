@@ -54,3 +54,33 @@ This project is structured as follows:
 ├── sonar-project.properties  # SonarQube configuration
 └── README.md                 # Project documentation
 ```
+
+
+### User Data Script (`script.sh`)
+The user data script provisions an EC2 instance with the following:
+1. Updates and upgrades the system.
+2. Installs Docker, Java 17, Terraform, AWS CLI, Trivy, Node.js, and npm.
+3. Configures Docker and Kubernetes tools for the CI/CD pipeline.
+
+### Infrastructure
+- **AWS S3**: Stores Terraform remote state for tracking infrastructure changes.
+- **AWS EC2**: Hosts a self-hosted GitHub Actions runner.
+- **AWS EKS**: Kubernetes cluster for deploying and managing containerized applications.
+
+### Pipeline Highlights
+- **GitHub Actions**: Automates testing, building, and deployment of code.
+- **SonarQube**: Performs static code analysis to ensure quality and security.
+- **Aqua Trivy**: Scans Docker images for vulnerabilities before deployment.
+- **Slack Integration**: Sends notifications for pipeline events.
+
+## Getting Started
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/project-aws-eks-cicd-actions.git
+   cd project-aws-eks-cicd-actions
+   ```
+2. **Set up Terraform backend:**
+   Update the Terraform remote state configuration in the `aws-terraform-eks directory`.
+
+
+   
