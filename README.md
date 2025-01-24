@@ -76,11 +76,26 @@ The user data script provisions an EC2 instance with the following:
 ## Getting Started
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/project-aws-eks-cicd-actions.git
-   cd project-aws-eks-cicd-actions
+   - git clone https://github.com/project-aws-eks-cicd-actions.git
+   - cd project-aws-eks-cicd-actions
    ```
-2. **Set up Terraform backend:**
-   Update the Terraform remote state configuration in the `aws-terraform-eks directory`.
-
-
+2. **Set-up AWS EC2 Infrastructure:**
+   From your local computer, provision AWS EC2.
+   ```bash
+   - cd project-aws-eks-cicd-actions/aws-ec2-module
+   - terraform init
+   - terraform validate
+   - terraform plan
+   - terraform apply --auto-approve
+   ```
+   
+4. **Set up AWS EKS cluster:**
+   SSH into AWS EC2 virtual macine and provision AWS EKS cluster.
+   ```bash
+   - cd project-aws-eks-cicd-actions/aws-terraform-eks
+   - terraform init
+   - terraform validate
+   - terraform plan
+   - terraform apply --auto-approve
+   ```
    
